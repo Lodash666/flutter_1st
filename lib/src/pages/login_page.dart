@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/src/themes/login_theme.dart';
 
 class LoginPage extends StatelessWidget {
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     //Scaffold ตัวคุมหน้าจอตั้งต้นหน้าจอ
@@ -109,6 +111,9 @@ class LoginPage extends StatelessWidget {
             onPressed: () {
               //void function
               // TODO:
+              final username = usernameController.text;
+              final password = passwordController.text;
+              print(username + password);
             },
             child: Text(
               "Login",
@@ -124,6 +129,7 @@ class LoginPage extends StatelessWidget {
 
   _buildUsername() {
     return TextField(
+      controller: usernameController,
       decoration: InputDecoration(
         hintText: "Example@gmail.com",
         icon: Icon(Icons.people),
@@ -136,6 +142,7 @@ class LoginPage extends StatelessWidget {
 
   _buildPassword() {
     return TextField(
+      controller: passwordController,
       decoration: InputDecoration(
         icon: Icon(Icons.lock),
         labelText: "Password",
